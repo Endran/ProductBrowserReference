@@ -28,7 +28,6 @@ class CatalogRetriever @Inject constructor() {
             .map { Catalog(it.toList()) }
             .observeOn(AndroidSchedulers.mainThread())
 
-
     private fun getProductArrayJson(): String {
         val url = URL("https://gist.githubusercontent.com/anonymous/a3b3e50413fff111505a/raw/0522419f508e7ea506a8856586dce11a5664e9df/products.json");
         val bufferedReader = BufferedReader(InputStreamReader(url.openStream()));

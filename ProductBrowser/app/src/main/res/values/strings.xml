@@ -7,4 +7,5 @@
 
     <string name="overview_numberOfItems">Number of items</string>
     <string name="overview_latestRetrieval">Latest retrieval</string>
+    <string name="itemview_product_contentDescription">Product</string>
 </resources>
