@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016 by David Hardy. Licensed under the Apache License, Version 2.0.
+  -->
+
+<notices>
+    <notice>
+        <name>Android support libraries 23.1.1</name>
+        <copyright>Copyright (C) 2015 The Android Open Source Project.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>Dagger 2.0.2</name>
+        <copyright>Copyright 2012 Square, Inc.&lt;br/&gt;Copyright 2012 Google, Inc.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>Glide 3.7.0</name>
+        <copyright>Copyright 2014 Google, Inc. All rights reserved.&lt;br/&gt;Copyright 2012 Jake
+            Wharton.&lt;br/&gt;Copyright 2011 The Android Open Source Project.&lt;br/&gt;Copyright
+            (c) 2013 Xcellent Creations, Inc.&lt;br/&gt;Copyright (c) 1994 Anthony Dekker.
+        </copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>Gson 2.5</name>
+        <copyright>Copyright 2008 Google Inc.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>Joda-Time 2.9.2</name>
+        <copyright>Copyright (C) 2002-2015 Joda.org.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>Joda-Time Android 2.9.2</name>
+        <copyright>Copyright (C) Daniel Lew.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>Licenses Dialog 1.8.0</name>
+        <copyright>Copyright 2013 Philip Schiffer.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>RxAndroid 1.1.0</name>
+        <copyright>Copyright 2015 The RxAndroid authors.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>RxJava 1.1.1</name>
+        <copyright>Copyright 2013 Netflix, Inc.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>RxKotlin 0.40.1</name>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>Timber 4.1.1</name>
+        <copyright>Copyright 2013 Jake Wharton.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+</notices>

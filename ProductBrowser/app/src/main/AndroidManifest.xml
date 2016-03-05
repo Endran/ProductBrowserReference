@@ -30,6 +30,12 @@
             android:theme="@style/ProductBrowser.NoActionBar">
         </activity>
 
+        <activity
+            android:name="nl.endran.productbrowser.AboutActivity"
+            android:label="@string/app_name"
+            android:theme="@style/ProductBrowser.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

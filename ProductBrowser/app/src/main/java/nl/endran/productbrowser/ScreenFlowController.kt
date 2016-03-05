@@ -16,4 +16,10 @@ class ScreenFlowController @Inject constructor(val context: Context) {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         context.startActivity(intent)
     }
+
+    fun showAbout() {
+        val intent = Intent(context, AboutActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        context.startActivity(intent)
+    }
 }
