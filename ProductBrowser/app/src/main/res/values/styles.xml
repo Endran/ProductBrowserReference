@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Exists for inheritance purposes -->
+    <style name="ProductBrowser" parent="ProductBrowser.Base"/>
+
+    <style name="ProductBrowser.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ProductBrowser.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ProductBrowser.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="ProductBrowser.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+</resources>
