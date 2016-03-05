@@ -39,7 +39,7 @@ class OverviewFragmentView @Inject constructor() : BaseFragmentView<OverviewFrag
         rootView.recyclerView.adapter = productAdapter
     }
 
-    private class ProductAdapter : RecyclerView.Adapter<ViewHolder>() {
+    private inner class ProductAdapter : RecyclerView.Adapter<ViewHolder>() {
 
         var products: List<Product> = listOf()
 
@@ -60,9 +60,9 @@ class OverviewFragmentView @Inject constructor() : BaseFragmentView<OverviewFrag
                     .placeholder(R.color.colorAccent25PercentTranparent)
                     .centerCrop()
                     .into(itemView.imageView);
+            itemView.setOnClickListener { presenter?.productSelected(product) }
         }
     }
 
     private class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {}
-
 }

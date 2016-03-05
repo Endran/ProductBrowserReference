@@ -4,13 +4,16 @@
 
 package nl.endran.productbrowser.fragments
 
+import nl.endran.productbrowser.ScreenFlowController
 import nl.endran.productbrowser.datatypes.Catalog
+import nl.endran.productbrowser.datatypes.Product
 import nl.endran.productbrowser.interactors.CatalogRetriever
 import nl.endran.productbrowser.mvp.BaseFragmentPresenter
 import rx.Subscription
 import javax.inject.Inject
 
 class OverviewFragmentPresenter @Inject constructor(
+        val screenFlowController : ScreenFlowController,
         val catalogRetriever: CatalogRetriever) : BaseFragmentPresenter<OverviewFragmentPresenter.ViewModel>() {
 
     interface ViewModel {
@@ -27,5 +30,9 @@ class OverviewFragmentPresenter @Inject constructor(
 
     override fun onStop() {
         subscription?.unsubscribe()
+    }
+
+    fun productSelected(product: Product) {
+        screenFlowController.showProductDetail(product)
     }
 }

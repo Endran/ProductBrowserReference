@@ -8,6 +8,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import nl.endran.productbrowser.App;
+import nl.endran.productbrowser.DetailActivity;
 import nl.endran.productbrowser.MainActivity;
 import nl.endran.productbrowser.fragments.OverviewFragmentPresenter;
 import nl.endran.productbrowser.fragments.OverviewFragmentView;
@@ -20,7 +21,9 @@ public interface AppComponent {
 
     void inject(App app);
 
-    void inject(MainActivity mainActivity);
+    void inject(MainActivity activity);
+
+    void inject(DetailActivity activity);
 
     SkeletonFragmentView getSkeletonFragmentView();
 
