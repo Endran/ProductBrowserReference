@@ -5,22 +5,27 @@
 package nl.endran.productbrowser.fragments
 
 import nl.endran.productbrowser.datatypes.Catalog
+import nl.endran.productbrowser.interactors.CatalogRetriever
 import nl.endran.productbrowser.mvp.BaseFragmentPresenter
-import org.joda.time.DateTime
+import rx.Subscription
 import javax.inject.Inject
 
-class OverviewFragmentPresenter @Inject constructor()
-: BaseFragmentPresenter<OverviewFragmentPresenter.ViewModel>() {
+class OverviewFragmentPresenter @Inject constructor(
+        val catalogRetriever: CatalogRetriever) : BaseFragmentPresenter<OverviewFragmentPresenter.ViewModel>() {
 
     interface ViewModel {
         fun showProducts(catalog: Catalog)
     }
 
+    var subscription: Subscription? = null
+
     override fun onStart() {
-        viewModel?.showProducts(Catalog(DateTime.now(), listOf()))
+        subscription = catalogRetriever.observable.subscribe() {
+            viewModel?.showProducts(it)
+        }
     }
 
     override fun onStop() {
-        // Stop any running operation that might be busy in the background
+        subscription?.unsubscribe()
     }
 }

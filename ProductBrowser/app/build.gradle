@@ -39,6 +39,12 @@ dependencies {
         exclude module: 'support-v4'
     }
 
+    compile "com.google.code.gson:gson:${gsonVersion}"
+
+    compile "io.reactivex:rxjava:${rxJavaVersion}"
+    compile "io.reactivex:rxkotlin:${rxKotlinVersion}"
+    compile "io.reactivex:rxandroid:${rxAndroidVersion}"
+
     compile "net.danlew:android.joda:${jodaTimeVersion}"
 
     compile 'com.github.bumptech.glide:glide:3.7.0'
