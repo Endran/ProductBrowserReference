@@ -9,6 +9,8 @@ import javax.inject.Singleton;
 import dagger.Component;
 import nl.endran.productbrowser.App;
 import nl.endran.productbrowser.MainActivity;
+import nl.endran.productbrowser.fragments.OverviewFragmentPresenter;
+import nl.endran.productbrowser.fragments.OverviewFragmentView;
 import nl.endran.productbrowser.fragments.SkeletonFragmentPresenter;
 import nl.endran.productbrowser.fragments.SkeletonFragmentView;
 
@@ -23,4 +25,8 @@ public interface AppComponent {
     SkeletonFragmentView getSkeletonFragmentView();
 
     SkeletonFragmentPresenter getSkeletonFragmentPresenter();
+
+    OverviewFragmentView getOverviewFragmentView();
+
+    OverviewFragmentPresenter getOverviewFragmentPresenter();
 }

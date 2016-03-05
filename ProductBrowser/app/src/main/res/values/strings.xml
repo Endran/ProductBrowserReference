@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">KotlinSkeleton</string>
+    <string name="app_name">Product Browser</string>
     <string name="action_settings">Settings</string>
     <string name="show_toast">Show Toast</string>
     <string name="show_snackbar">Show Snackbar</string>
     <string name="message_tot_show">Message to show</string>
+
+    <string name="overview_numberOfItems">Number of items</string>
+    <string name="overview_latestRetrieval">Latest retrieval</string>
 </resources>
