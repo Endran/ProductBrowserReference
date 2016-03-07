@@ -12,7 +12,7 @@ import javax.inject.Inject
 class ScreenFlowController @Inject constructor(val context: Context) {
 
     fun showProductDetail(product: Product) {
-        val intent = Intent(context, DetailActivity::class.java)
+        val intent = DetailActivity.createIntent(context, product)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         context.startActivity(intent)
     }

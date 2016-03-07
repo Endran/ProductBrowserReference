@@ -7,6 +7,11 @@
     <dimen name="itemview_item_size">48dp</dimen>
     <dimen name="itemview_text_margin">6dp</dimen>
 
+    <dimen name="detailview_card_cornerRadius">4dp</dimen>
+    <dimen name="detailview_card_margin">8dp</dimen>
+    <dimen name="detailview_card_padding">8dp</dimen>
+    <dimen name="detailview_image_elevation">4dp</dimen>
+
     <dimen name="about_text_topMargin">8dp</dimen>
     <dimen name="about_button_topMargin">16dp</dimen>
 </resources>

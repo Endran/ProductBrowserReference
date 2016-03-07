@@ -57,7 +57,7 @@ class OverviewFragmentView @Inject constructor() : BaseFragmentView<OverviewFrag
             itemView.textViewTitle.text = product.name
             itemView.textViewStock.text = "${product.items_remaining}"
             Glide.with(itemView.context).load(product.image_url)
-                    .placeholder(R.color.colorAccent25PercentTranparent)
+                    .placeholder(R.color.colorPrimaryLight)
                     .centerCrop()
                     .into(itemView.imageView);
             itemView.setOnClickListener { presenter?.productSelected(product) }

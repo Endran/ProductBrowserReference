@@ -11,8 +11,8 @@ import nl.endran.productbrowser.App;
 import nl.endran.productbrowser.ScreenFlowController;
 import nl.endran.productbrowser.fragments.OverviewFragmentPresenter;
 import nl.endran.productbrowser.fragments.OverviewFragmentView;
-import nl.endran.productbrowser.fragments.SkeletonFragmentPresenter;
-import nl.endran.productbrowser.fragments.SkeletonFragmentView;
+import nl.endran.productbrowser.fragments.DetailFragmentPresenter;
+import nl.endran.productbrowser.fragments.DetailFragmentView;
 
 @Singleton
 @Component(modules = {AppModule.class})
@@ -22,9 +22,9 @@ public interface AppComponent {
 
     ScreenFlowController getScreenFlowController();
 
-    SkeletonFragmentView getSkeletonFragmentView();
+    DetailFragmentView getDetailFragmentView();
 
-    SkeletonFragmentPresenter getSkeletonFragmentPresenter();
+    DetailFragmentPresenter.Factory getDetailFragmentPresenterFactory();
 
     OverviewFragmentView getOverviewFragmentView();
 

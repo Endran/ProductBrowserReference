@@ -8,9 +8,15 @@
     <string name="menu_about">About</string>
 
     <string name="all_unknown">unknown</string>
+    <string name="all_lorum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique quam ut metus porta congue. Proin in consectetur orci. Suspendisse varius nulla eget ante pretium hendrerit. Aliquam sollicitudin, turpis sed laoreet commodo, ipsum nulla efficitur quam, rhoncus rhoncus arcu arcu eu erat.</string>
 
     <string name="overview_numberOfItems">Number of items</string>
     <string name="overview_latestRetrieval">Latest retrieval</string>
+
+    <string name="detail_name">Name</string>
+    <string name="detail_category">Category</string>
+    <string name="detail_remaining">Remaining</string>
+    <string name="detail_description">Description</string>
 
     <string name="itemview_product_contentDescription">Product</string>
 
