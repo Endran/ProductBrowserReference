@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.fragment_overview.view.*
 import kotlinx.android.synthetic.main.itemview_product.view.*
 import nl.endran.productbrowser.R
@@ -61,6 +62,7 @@ class OverviewFragmentView @Inject constructor() : BaseFragmentView<OverviewFrag
             Glide.with(itemView.context).load(product.image_url)
                     .placeholder(R.color.colorPrimaryLight)
                     .centerCrop()
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
                     .into(itemView.imageView);
             itemView.setOnClickListener { presenter?.productSelected(product) }
         }

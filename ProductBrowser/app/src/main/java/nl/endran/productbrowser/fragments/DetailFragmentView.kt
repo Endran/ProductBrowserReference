@@ -7,6 +7,7 @@ package nl.endran.productbrowser.fragments
 import android.text.Html
 import android.view.View
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import nl.endran.productbrowser.R
 import nl.endran.productbrowser.interactors.Product
@@ -31,6 +32,7 @@ class DetailFragmentView @Inject constructor() : BaseFragmentView<DetailFragment
                 Glide.with(rootView!!.context).load(product.image_url)
                         .placeholder(R.color.colorPrimaryLight)
                         .centerCrop()
+                        .diskCacheStrategy(DiskCacheStrategy.RESULT)
                         .into(rootView!!.imageView);
             }
         }

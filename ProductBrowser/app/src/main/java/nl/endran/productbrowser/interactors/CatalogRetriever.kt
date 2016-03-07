@@ -4,9 +4,11 @@
 
 package nl.endran.productbrowser.interactors
 
+import android.content.res.Resources
 import com.f2prateek.rx.preferences.Preference
 import com.f2prateek.rx.preferences.RxSharedPreferences
 import com.google.gson.Gson
+import nl.endran.productbrowser.R
 import org.joda.time.DateTime
 import rx.Observable
 import rx.Subscription
@@ -23,13 +25,16 @@ import javax.inject.Inject
 data class Product(val name: String, val category: String, val items_remaining: Int, val image_url: String, val description: String)
 data class Catalog(val products: List<Product>, val retrievedAt: DateTime = DateTime.now())
 
-class CatalogRetriever @Inject constructor(rxSharedPreferences: RxSharedPreferences) {
+class CatalogRetriever @Inject constructor(resources: Resources, rxSharedPreferences: RxSharedPreferences) {
+
+    val serverUrl: String
 
     private val catalogJsonPreferences: Preference<String>
     private val datePreferences: Preference<String>
     private var repeatSubscription: Subscription? = null
 
     init {
+        serverUrl = resources.getString(R.string.serverUrl)
         catalogJsonPreferences = rxSharedPreferences.getString("CATALOG_KEY", "");
         datePreferences = rxSharedPreferences.getString("DATE_KEY", "");
     }
@@ -67,7 +72,7 @@ class CatalogRetriever @Inject constructor(rxSharedPreferences: RxSharedPreferen
     private fun getProductArrayJson(): String {
         val stringBuilder = StringBuilder();
         try {
-            val url = URL("https://gist.githubusercontent.com/anonymous/a3b3e50413fff111505a/raw/0522419f508e7ea506a8856586dce11a5664e9df/products.json");
+            val url = URL(serverUrl);
             val bufferedReader = BufferedReader(InputStreamReader(url.openStream()));
 
             var line: String?

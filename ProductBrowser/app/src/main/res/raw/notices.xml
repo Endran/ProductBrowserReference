@@ -67,6 +67,12 @@
     </notice>
 
     <notice>
+        <name>RxPreferences 1.0.1</name>
+        <copyright>Copyright 2014 Prateek Srivastava.</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
         <name>Timber 4.1.1</name>
         <copyright>Copyright 2013 Jake Wharton.</copyright>
         <license>Apache Software License 2.0</license>

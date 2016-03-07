@@ -49,7 +49,7 @@ dependencies {
 
     compile "net.danlew:android.joda:${jodaTimeVersion}"
 
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile "com.github.bumptech.glide:glide:${glideVersion}"
 
     compile "com.jakewharton.timber:timber:${timberVersion}"
     debugCompile "com.facebook.stetho:stetho:${stethoVersion}"
