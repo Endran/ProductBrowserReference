@@ -9,7 +9,7 @@ import android.view.View
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import nl.endran.productbrowser.R
-import nl.endran.productbrowser.datatypes.Product
+import nl.endran.productbrowser.interactors.Product
 import nl.endran.productbrowser.mvp.BaseFragmentView
 import javax.inject.Inject
 

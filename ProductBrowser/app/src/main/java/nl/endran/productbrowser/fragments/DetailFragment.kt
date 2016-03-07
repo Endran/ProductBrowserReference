@@ -6,8 +6,8 @@ package nl.endran.productbrowser.fragments
 
 import android.os.Bundle
 import com.google.gson.Gson
-import nl.endran.productbrowser.datatypes.Product
 import nl.endran.productbrowser.injections.AppComponent
+import nl.endran.productbrowser.interactors.Product
 import nl.endran.productbrowser.mvp.BaseFragment
 
 class DetailFragment : BaseFragment<DetailFragmentPresenter.ViewModel, DetailFragmentPresenter, DetailFragmentView>() {

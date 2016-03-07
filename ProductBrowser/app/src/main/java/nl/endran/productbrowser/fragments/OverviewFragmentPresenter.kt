@@ -4,16 +4,16 @@
 
 package nl.endran.productbrowser.fragments
 
-import nl.endran.productbrowser.ScreenFlowController
-import nl.endran.productbrowser.datatypes.Catalog
-import nl.endran.productbrowser.datatypes.Product
+import nl.endran.productbrowser.interactors.Catalog
 import nl.endran.productbrowser.interactors.CatalogRetriever
+import nl.endran.productbrowser.interactors.Product
+import nl.endran.productbrowser.interactors.ScreenFlowController
 import nl.endran.productbrowser.mvp.BaseFragmentPresenter
 import rx.Subscription
 import javax.inject.Inject
 
 class OverviewFragmentPresenter @Inject constructor(
-        val screenFlowController : ScreenFlowController,
+        val screenFlowController: ScreenFlowController,
         val catalogRetriever: CatalogRetriever) : BaseFragmentPresenter<OverviewFragmentPresenter.ViewModel>() {
 
     interface ViewModel {
@@ -23,6 +23,7 @@ class OverviewFragmentPresenter @Inject constructor(
     var subscription: Subscription? = null
 
     override fun onStart() {
+        catalogRetriever.start()
         subscription = catalogRetriever.observable.subscribe() {
             viewModel?.showProducts(it)
         }
@@ -30,9 +31,15 @@ class OverviewFragmentPresenter @Inject constructor(
 
     override fun onStop() {
         subscription?.unsubscribe()
+        subscription = null
+        catalogRetriever.stop()
     }
 
     fun productSelected(product: Product) {
         screenFlowController.showProductDetail(product)
+    }
+
+    fun refresh() {
+        catalogRetriever.refresh()
     }
 }

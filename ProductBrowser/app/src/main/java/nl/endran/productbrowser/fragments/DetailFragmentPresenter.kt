@@ -4,7 +4,7 @@
 
 package nl.endran.productbrowser.fragments
 
-import nl.endran.productbrowser.datatypes.Product
+import nl.endran.productbrowser.interactors.Product
 import nl.endran.productbrowser.mvp.BaseFragmentPresenter
 import javax.inject.Inject
 

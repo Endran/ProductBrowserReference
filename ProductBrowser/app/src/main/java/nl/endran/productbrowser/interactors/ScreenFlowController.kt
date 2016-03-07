@@ -2,11 +2,12 @@
  * Copyright (c) 2016 by David Hardy. Licensed under the Apache License, Version 2.0.
  */
 
-package nl.endran.productbrowser
+package nl.endran.productbrowser.interactors
 
 import android.content.Context
 import android.content.Intent
-import nl.endran.productbrowser.datatypes.Product
+import nl.endran.productbrowser.AboutActivity
+import nl.endran.productbrowser.DetailActivity
 import javax.inject.Inject
 
 class ScreenFlowController @Inject constructor(val context: Context) {
@@ -18,7 +19,7 @@ class ScreenFlowController @Inject constructor(val context: Context) {
     }
 
     fun showAbout() {
-        val intent = Intent(context, AboutActivity::class.java)
+        val intent = AboutActivity.createIntent(context)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         context.startActivity(intent)
     }

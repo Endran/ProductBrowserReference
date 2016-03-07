@@ -4,7 +4,6 @@
 
 package nl.endran.productbrowser.kotlin.example
 
-import nl.endran.productbrowser.example.ModelInteractor
 import org.assertj.core.api.Assertions
 import org.junit.Before
 import org.junit.Test

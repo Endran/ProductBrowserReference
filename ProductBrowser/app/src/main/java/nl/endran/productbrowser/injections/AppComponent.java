@@ -8,7 +8,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import nl.endran.productbrowser.App;
-import nl.endran.productbrowser.ScreenFlowController;
+import nl.endran.productbrowser.interactors.ScreenFlowController;
 import nl.endran.productbrowser.fragments.OverviewFragmentPresenter;
 import nl.endran.productbrowser.fragments.OverviewFragmentView;
 import nl.endran.productbrowser.fragments.DetailFragmentPresenter;

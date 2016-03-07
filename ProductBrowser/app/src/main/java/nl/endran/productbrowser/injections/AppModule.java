@@ -10,18 +10,15 @@ import android.content.res.Resources;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 
-import javax.inject.Named;
+import com.f2prateek.rx.preferences.RxSharedPreferences;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import nl.endran.productbrowser.example.ModelInteractor;
 
 @Module
 public class AppModule {
-
-    public static final String MODEL_INTERACTOR_A = "MODEL_INTERACTOR_A";
-    public static final String MODEL_INTERACTOR_B = "MODEL_INTERACTOR_B";
 
     @NonNull
     private final Context context;
@@ -59,14 +56,7 @@ public class AppModule {
     }
 
     @Provides
-    @Named(MODEL_INTERACTOR_A)
-    public ModelInteractor provideModelInteractorA() {
-        return new ModelInteractor("A");
-    }
-
-    @Provides
-    @Named(MODEL_INTERACTOR_B)
-    public ModelInteractor provideModelInteractorB() {
-        return new ModelInteractor("B");
+    public RxSharedPreferences provideRxSharedPreferences(@NonNull final SharedPreferences sharedPreferences) {
+        return RxSharedPreferences.create(sharedPreferences);
     }
 }

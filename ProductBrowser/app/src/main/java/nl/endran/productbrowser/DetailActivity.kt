@@ -10,8 +10,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
-import nl.endran.productbrowser.datatypes.Product
 import nl.endran.productbrowser.fragments.DetailFragment
+import nl.endran.productbrowser.interactors.Product
 
 class DetailActivity : AppCompatActivity() {
 

@@ -11,9 +11,9 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_overview.view.*
 import kotlinx.android.synthetic.main.itemview_product.view.*
 import nl.endran.productbrowser.R
-import nl.endran.productbrowser.datatypes.Catalog
-import nl.endran.productbrowser.datatypes.Product
 import nl.endran.productbrowser.injections.getLayoutInflater
+import nl.endran.productbrowser.interactors.Catalog
+import nl.endran.productbrowser.interactors.Product
 import nl.endran.productbrowser.mvp.BaseFragmentView
 import org.joda.time.format.DateTimeFormat
 import javax.inject.Inject
@@ -26,8 +26,9 @@ class OverviewFragmentView @Inject constructor() : BaseFragmentView<OverviewFrag
 
     override fun getViewModel(): OverviewFragmentPresenter.ViewModel = object : OverviewFragmentPresenter.ViewModel {
         override fun showProducts(catalog: Catalog) {
+            rootView?.swipeRefreshLayout?.isRefreshing = false
             rootView?.textViewNumberOfItems?.text = "${catalog.products.size}"
-            rootView?.textViewLatestRetrieval?.text = "${DateTimeFormat.shortDateTime().print(catalog.retrievedAt)}"
+            rootView?.textViewLatestRetrieval?.text = "${DateTimeFormat.mediumDateTime().print(catalog.retrievedAt)}"
             productAdapter.products = catalog.products
             productAdapter.notifyDataSetChanged()
         }
@@ -37,6 +38,7 @@ class OverviewFragmentView @Inject constructor() : BaseFragmentView<OverviewFrag
         rootView.textViewNumberOfItems.text = ""
         rootView.textViewLatestRetrieval.text = ""
         rootView.recyclerView.adapter = productAdapter
+        rootView.swipeRefreshLayout.setOnRefreshListener { presenter?.refresh() }
     }
 
     private inner class ProductAdapter : RecyclerView.Adapter<ViewHolder>() {
