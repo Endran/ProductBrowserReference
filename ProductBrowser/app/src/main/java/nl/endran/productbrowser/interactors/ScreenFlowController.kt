@@ -10,7 +10,7 @@ import nl.endran.productbrowser.AboutActivity
 import nl.endran.productbrowser.DetailActivity
 import javax.inject.Inject
 
-class ScreenFlowController @Inject constructor(val context: Context) {
+class ScreenFlowController @Inject constructor(private val context: Context) {
 
     fun showProductDetail(product: Product) {
         val intent = DetailActivity.createIntent(context, product)
