@@ -106,4 +106,3 @@
     </ScrollView>
 
 </LinearLayout>
-    <!--val name: String, val category: String, val items_remaining: Int, val image_url: String, val description: String)-->
