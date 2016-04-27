@@ -1,18 +1,20 @@
-<div class="jumbotron">
+  <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
     Always a pleasure scaffolding your apps.
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <p><a class="btn btn-lg btn-success" ng-href="#/about">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
-<div class="row marketing">
+<md-content flex layout-padding>
 
   <h3>Awesome things</h3>
   <p>
   <li ng-repeat="thing in awesomeThings">{{thing}}</li>
   </p>
+
+  <md-divider/>
 
   <h4>HTML5 Boilerplate</h4>
   <p>
@@ -26,4 +28,5 @@
 
   <h4>Karma</h4>
   <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+
+</md-content>
