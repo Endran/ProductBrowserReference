@@ -15,7 +15,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
+    'ngMessages',
     'ngMaterial'
   ])
   .config(function ($routeProvider) {
@@ -29,6 +29,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/addProducer', {
+        templateUrl: 'views/addProducer.html',
+        controller: 'AddProducerCtrl',
+        controllerAs: 'addProducer'
       })
       .otherwise({
         redirectTo: '/'

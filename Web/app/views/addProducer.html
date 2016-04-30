@@ -1,0 +1,49 @@
+<div ng-controller="AddProducerCtrl" layout="column" ng-cloak>
+  <md-content layout-padding>
+    <form name="addProducerForm">
+
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">New Producer</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        
+        <md-card-title-media>
+          <div class="md-media-lg card-media"></div>
+        </md-card-title-media>
+
+        <md-card-content layout-align="space-between">
+
+          <md-input-container class="md-block">
+            <label>Name</label>
+            <input required name="name" ng-model="producer.name">
+            <div ng-messages="addProducerForm.name.$error">
+              <div ng-message="required">* This is required.</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Address</label>
+            <input name="address" ng-model="producer.address">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>URL</label>
+            <input name="url" ng-model="producer.url">
+          </md-input-container>
+
+        </md-card-content>
+
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Cancel</md-button>
+          <md-button class="md-accent">Save</md-button>
+        </md-card-actions>
+      </md-card>
+
+    </form>
+  </md-content>
+</div>
