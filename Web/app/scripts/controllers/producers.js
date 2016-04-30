@@ -41,11 +41,10 @@ angular.module('showcaseweb')
             var $cancelButton = $actionsSection.children()[0];
             var $confirmButton = $actionsSection.children()[1];
             angular.element($confirmButton).addClass('md-raised md-warn');
-            // angular.element($cancelButton).addClass('md-raised');
           }
         })
         .title('Delete producer')
-        .textContent('Would you like to delete this producer? This action cannot be undone!')
+        .textContent('Would you like to delete producer ' + producer.name + '? This action cannot be undone!')
         .targetEvent(ev)
         .ok('Yes, I am sure')
         .cancel('Nope');
