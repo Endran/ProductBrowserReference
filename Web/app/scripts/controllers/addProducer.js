@@ -18,6 +18,6 @@ angular.module('showcaseweb')
 
     $scope.save = function () {
       firebase.push($scope.producer);
-
+      $scope.producer = {}; 
     };
   });

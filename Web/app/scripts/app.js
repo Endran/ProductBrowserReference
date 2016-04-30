@@ -36,6 +36,11 @@ angular
         controller: 'AddProducerCtrl',
         controllerAs: 'addProducer'
       })
+      .when('/producers', {
+        templateUrl: 'views/producers.html',
+        controller: 'ProducersCtrl',
+        controllerAs: 'producers'
+      })
       .otherwise({
         redirectTo: '/'
       });
