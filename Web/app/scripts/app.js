@@ -38,4 +38,9 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .config(function ($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('amber')
+      .accentPalette('red');
   });
