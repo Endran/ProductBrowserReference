@@ -8,16 +8,18 @@
  * Controller of the showcaseweb
  */
 angular.module('showcaseweb')
-  .controller('AddProducerCtrl', function ($scope, $firebaseObject) {
+  .controller('AddProducerCtrl', function ($scope, $mdDialog) {
     var firebase = new Firebase("https://radiant-fire-5175.firebaseio.com/producer");
-    // var syncObject = $firebaseObject(firebase);
-    // syncObject.$bindTo($scope, "producer");
-    // $scope.producer = $firebaseObject(firebase);
 
     $scope.producer = {};
 
     $scope.save = function () {
       firebase.push($scope.producer);
-      $scope.producer = {}; 
+      $scope.producer = {};
+      $mdDialog.hide();
     };
+
+    $scope.cancel = function () {
+      $mdDialog.hide();
+    }
   });

@@ -1,48 +1,35 @@
-<div ng-controller="AddProducerCtrl" layout="column" ng-cloak>
-  <md-content layout-padding>
-    <form name="addProducerForm">
+<md-dialog aria-label="Mango (Fruit)" ng-cloak flex="percentage" ie flex="50">
+  <div ng-controller="AddProducerCtrl" layout="column" ng-cloak>
+    <md-content layout-padding>
+      <form name="addProducerForm" ng-submit="save()">
 
-      <md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">New Producer</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-lg card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
+        <h1>New Producer</h1>
+        <br>
 
-        <md-card-title-media>
-          <div class="md-media-lg card-media"></div>
-        </md-card-title-media>
+        <md-input-container class="md-block">
+          <label>Name</label>
+          <input required name="name" ng-model="producer.name">
+          <div ng-messages="addProducerForm.name.$error">
+            <div ng-message="required">* This is required.</div>
+          </div>
+        </md-input-container>
 
-        <md-card-content layout-align="space-between">
+        <md-input-container class="md-block">
+          <label>Address</label>
+          <input name="address" ng-model="producer.address">
+        </md-input-container>
 
-          <md-input-container class="md-block">
-            <label>Name</label>
-            <input required name="name" ng-model="producer.name">
-            <div ng-messages="addProducerForm.name.$error">
-              <div ng-message="required">* This is required.</div>
-            </div>
-          </md-input-container>
+        <md-input-container class="md-block">
+          <label>URL</label>
+          <input name="url" ng-model="producer.url">
+        </md-input-container>
 
-          <md-input-container class="md-block">
-            <label>Address</label>
-            <input name="address" ng-model="producer.address">
-          </md-input-container>
+        <div layout="row" layout-align="end center">
+        <md-button ng-click="cancel()">Cancel</md-button>
+        <md-button class="md-accent" type="submit">Save</md-button>
+        </div>
 
-          <md-input-container class="md-block">
-            <label>URL</label>
-            <input name="url" ng-model="producer.url">
-          </md-input-container>
-
-        </md-card-content>
-
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-accent" ng-click="save()">Save</md-button>
-        </md-card-actions>
-      </md-card>
-
-    </form>
-  </md-content>
-</div>
+      </form>
+    </md-content>
+  </div>
+</md-dialog>

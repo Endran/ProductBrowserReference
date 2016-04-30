@@ -8,7 +8,7 @@
  * Controller of the showcaseweb
  */
 angular.module('showcaseweb')
-  .controller('ProducersCtrl', function ($scope, $firebaseArray) {
+  .controller('ProducersCtrl', function ($scope, $firebaseArray, $mdMedia, $mdDialog) {
     var self = this;
     self.firebaseProducers = new Firebase("https://radiant-fire-5175.firebaseio.com/producer");
     self.producers = $firebaseArray(self.firebaseProducers);
@@ -21,9 +21,14 @@ angular.module('showcaseweb')
     // });
 
 
-
-
-
-
+    $scope.showAddProducer = function (ev) {
+      $mdDialog.show({
+        templateUrl: 'views/addProducer.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose: true,
+        fullscreen: false
+      });
+    };
 
   });
