@@ -28,35 +28,42 @@
 
 <md-toolbar class="md-theme-indigo">
   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Settings">
+    <md-button class="md-icon-button" aria-label="Menu" show-md hide-gt-md ng-controller="SideMenuCtrl"
+               ng-click="toggleLeftMenu()">
       <i class="fa fa-bars"></i>
     </md-button>
     <h2>Showcase</h2>
   </div>
 </md-toolbar>
 
-<section layout="row" flex layout-fill>
+<section layout="row" flex layout-fill ng-controller="SideMenuCtrl">
 
-  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="leftMenu" md-is-locked-open="$mdMedia('gt-md')">
+    <div class="md-toolbar-tools" show-md hide-gt-md>
+      <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleLeftMenu()">
+        <i class="fa fa-arrow-left"></i>
+      </md-button>
+      <h2>Showcase</h2>
+    </div>
     <md-content>
       <div hide-md show-gt-md>
         <md-list>
           <md-subheader>Catalog</md-subheader>
-          <md-list-item class="md-1-line"  aria-label="Products" ng-href="#/products"
+          <md-list-item class="md-1-line" aria-label="Products" ng-href="#/products" ng-click="toggleLeftMenu()">
             <p>Products</p>
           </md-list-item>
-          <md-list-item class="md-1-line"  aria-label="Producers" ng-href="#/producers"
+          <md-list-item class="md-1-line" aria-label="Producers" ng-href="#/producers" ng-click="toggleLeftMenu()">
             <p>Producers</p>
           </md-list-item>
-          <md-list-item class="md-1-line"  aria-label="Events" ng-href="#/events"
+          <md-list-item class="md-1-line" aria-label="Events" ng-href="#/events" ng-click="toggleLeftMenu()">
             <p>Events</p>
           </md-list-item>
           <md-divider></md-divider>
           <md-subheader>Settings</md-subheader>
-          <md-list-item class="md-1-line"  aria-label="Account" ng-href="#/account"
+          <md-list-item class="md-1-line" aria-label="Account" ng-href="#/account" ng-click="toggleLeftMenu()">
             <p>Account</p>
           </md-list-item>
-          <md-list-item class="md-1-line" aria-label="About" ng-href="#/about"
+          <md-list-item class="md-1-line" aria-label="About" ng-href="#/about" ng-click="toggleLeftMenu()">
             <p>About</p>
           </md-list-item>
         </md-list>
@@ -116,6 +123,7 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+<script src="scripts/controllers/sidemenu.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/addProducer.js"></script>
