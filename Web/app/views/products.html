@@ -1,0 +1,29 @@
+<div ng-controller="ProductsCtrl" ng-cloak>
+  <md-content>
+    <h1>Products</h1>
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="product in products">
+        <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
+        <div class="md-list-item-text" layout="column">
+          <div>
+            <h3>{{ product.name }}</h3>
+            <h4>{{ product.color }}</h4>
+            <p>{{ product.brewerId }}</p>
+          </div>
+          <div class="md-secondary md-hue-3">
+            <md-button class="md-icon-button" aria-label="More" ng-click="deleteProduct($event, product)">
+              <i class="fa fa-times"></i>
+            </md-button>
+          </div>
+        </div>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+
+    <md-button class="md-fab md-fab-top-right" aria-label="Add Product"
+               ng-click="showAddProduct($event)">
+      <i class="fa fa-plus"></i>
+    </md-button>
+
+  </md-content>
+</div>

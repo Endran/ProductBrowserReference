@@ -31,15 +31,25 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/producers', {
+        templateUrl: 'views/producers.html',
+        controller: 'ProducersCtrl',
+        controllerAs: 'producers'
+      })
       .when('/addProducer', {
         templateUrl: 'views/addProducer.html',
         controller: 'AddProducerCtrl',
         controllerAs: 'addProducer'
       })
-      .when('/producers', {
-        templateUrl: 'views/producers.html',
-        controller: 'ProducersCtrl',
-        controllerAs: 'producers'
+      .when('/products', {
+        templateUrl: 'views/products.html',
+        controller: 'ProductsCtrl',
+        controllerAs: 'products'
+      })
+      .when('/addProduct', {
+        templateUrl: 'views/addProduct.html',
+        controller: 'AddProductCtrl',
+        controllerAs: 'addProduct'
       })
       .otherwise({
         redirectTo: '/'
