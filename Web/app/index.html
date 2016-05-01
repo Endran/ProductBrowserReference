@@ -26,45 +26,43 @@
 
 <!--Add your site or application content here-->
 
-<!--<div class="header">-->
-<!--<div class="navbar navbar-default" role="navigation">-->
-<!--<div class="container">-->
-<!--<div class="navbar-header">-->
-
-<!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">-->
-<!--<span class="sr-only">Toggle navigation</span>-->
-<!--<span class="icon-bar"></span>-->
-<!--<span class="icon-bar"></span>-->
-<!--<span class="icon-bar"></span>-->
-<!--</button>-->
-
-<!--<a class="navbar-brand" href="#/">Showcase</a>-->
-<!--</div>-->
-
-<!--<div class="collapse navbar-collapse" id="js-navbar-collapse">-->
-
-<!--<ul class="nav navbar-nav">-->
-<!--<li class="active"><a href="#/">Home</a></li>-->
-<!--<li><a ng-href="#/about">About</a></li>-->
-<!--<li><a ng-href="#/">Contact</a></li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-
 <md-toolbar class="md-theme-indigo">
   <div class="md-toolbar-tools">
     <md-button class="md-icon-button" aria-label="Settings">
       <i class="fa fa-bars"></i>
     </md-button>
     <h2>Showcase</h2>
-    <span flex></span>
-    <md-button class="md-raised md-primary md-hue-1" aria-label="About" ng-href="#/about">About</md-button>
   </div>
 </md-toolbar>
 
 <section layout="row" flex layout-fill>
+
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-content>
+      <div hide-md show-gt-md>
+        <md-list>
+          <md-subheader>Catalog</md-subheader>
+          <md-list-item class="md-1-line"  aria-label="Products" ng-href="#/products"
+            <p>Products</p>
+          </md-list-item>
+          <md-list-item class="md-1-line"  aria-label="Producers" ng-href="#/producers"
+            <p>Producers</p>
+          </md-list-item>
+          <md-list-item class="md-1-line"  aria-label="Events" ng-href="#/events"
+            <p>Events</p>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-subheader>Settings</md-subheader>
+          <md-list-item class="md-1-line"  aria-label="Account" ng-href="#/account"
+            <p>Account</p>
+          </md-list-item>
+          <md-list-item class="md-1-line" aria-label="About" ng-href="#/about"
+            <p>About</p>
+          </md-list-item>
+        </md-list>
+      </div>
+    </md-content>
+  </md-sidenav>
 
   <md-content flex layout-padding="16">
 
@@ -74,7 +72,7 @@
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p>Developed and owned by David Hardy</p>
       </div>
     </div>
 
