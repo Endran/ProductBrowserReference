@@ -10,11 +10,22 @@
 angular.module('showcaseweb')
   .controller('ProductsCtrl', function ($scope, $firebaseArray, $mdMedia, $mdDialog) {
     var self = this;
-    self.firebaseProducts = new Firebase("https://radiant-fire-5175.firebaseio.com/product");
+    self.productFirebase = firebase.database().ref("product");
 
-    var query = self.firebaseProducts.orderByChild("name");
-    self.products = $firebaseArray(query);
-    $scope.products = self.products;
+    self.productFirebase.orderByChild("name").on('value', function (snapshot) {
+      var values = snapshot.val();
+      self.products = [];
+      for (var key in values) {
+        var value = values[key];
+        if (value) {
+          value.key = key;
+          self.products.push(values[key]);
+        }
+      }
+      $scope.products = self.products;
+      $scope.$apply();
+    }, /* onError */ function () {
+    }, /* context */ this);
 
     $scope.showAddProduct = function (ev) {
       $mdDialog.show({
@@ -28,21 +39,21 @@ angular.module('showcaseweb')
 
     $scope.deleteProduct = function (ev, product) {
       var confirm = $mdDialog.confirm({
-          onComplete: function afterShowAnimation() {
-            var $dialog = angular.element(document.querySelector('md-dialog'));
-            var $actionsSection = $dialog.find('md-dialog-actions');
-            var $cancelButton = $actionsSection.children()[0];
-            var $confirmButton = $actionsSection.children()[1];
-            angular.element($confirmButton).addClass('md-raised md-warn');
-          }
-        })
+        onComplete: function afterShowAnimation() {
+          var $dialog = angular.element(document.querySelector('md-dialog'));
+          var $actionsSection = $dialog.find('md-dialog-actions');
+          var $cancelButton = $actionsSection.children()[0];
+          var $confirmButton = $actionsSection.children()[1];
+          angular.element($confirmButton).addClass('md-raised md-warn');
+        }
+      })
         .title('Delete product')
         .textContent('Would you like to delete product ' + product.name + '? This action cannot be undone!')
         .targetEvent(ev)
         .ok('Yes, I am sure')
         .cancel('Nope');
       $mdDialog.show(confirm).then(function () {
-        self.products.$remove(product)
+        self.productFirebase.child(product.key).remove();
       });
     };
   });

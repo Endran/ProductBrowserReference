@@ -8,18 +8,30 @@
  * Controller of the showcaseweb
  */
 angular.module('showcaseweb')
-  .controller('AddProductCtrl', function ($scope, $firebaseArray, $mdDialog, $q) {
+  .controller('AddProductCtrl', function ($scope, $mdDialog) {
     var self = this;
-      self.productFirebase = new Firebase("https://radiant-fire-5175.firebaseio.com/product");
-    self.producerFirebase = new Firebase("https://radiant-fire-5175.firebaseio.com/producer");
-    var query = self.producerFirebase.orderByChild("name");
-    self.producers = $firebaseArray(query);
+    self.productFirebase = firebase.database().ref("product");
+    self.producerFirebase = firebase.database().ref("producer");
+
+    self.producerFirebase.orderByChild("name").on('value', function (snapshot) {
+      var values = snapshot.val();
+      self.producers = [];
+      for (var key in values) {
+        var value = values[key];
+        if (value) {
+          value.key = key;
+          self.producers.push(values[key]);
+        }
+      }
+      $scope.$apply();
+    }, /* onError */ function () {
+    }, /* context */ this);
 
     $scope.product = {};
 
     $scope.save = function () {
       var selectedItem = $scope.producer.selectedItem;
-      $scope.product.producerId = selectedItem.value.$id;
+      $scope.product.producerKey = selectedItem.value.key;
       self.productFirebase.push($scope.product);
       $scope.product = {};
       $mdDialog.hide();
