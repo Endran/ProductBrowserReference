@@ -15,7 +15,7 @@
     "lodash": "4.6.1",
     "angular-messages": "1.5.5",
     "angular-material": "1.1.0-rc4",
-    "firebase": "2.4.2",
+    "firebase": "3.0.3",
     "angularfire": "1.2.0",
     "components-font-awesome": "^4.6.1"
   },
@@ -32,5 +32,8 @@
         "dist/js/bootstrap.js"
       ]
     }
+  },
+  "resolutions": {
+    "firebase": "3.0"
   }
 }

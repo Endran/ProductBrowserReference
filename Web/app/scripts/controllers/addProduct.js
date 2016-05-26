@@ -10,7 +10,7 @@
 angular.module('showcaseweb')
   .controller('AddProductCtrl', function ($scope, $firebaseArray, $mdDialog, $q) {
     var self = this;
-    self.productFirebase = new Firebase("https://radiant-fire-5175.firebaseio.com/product");
+      self.productFirebase = new Firebase("https://radiant-fire-5175.firebaseio.com/product");
     self.producerFirebase = new Firebase("https://radiant-fire-5175.firebaseio.com/producer");
     var query = self.producerFirebase.orderByChild("name");
     self.producers = $firebaseArray(query);

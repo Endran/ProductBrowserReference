@@ -9,12 +9,12 @@
  */
 angular.module('showcaseweb')
   .controller('AddProducerCtrl', function ($scope, $mdDialog) {
-    var firebase = new Firebase("https://radiant-fire-5175.firebaseio.com/producer");
+    var firebaseProducers = firebase.database().ref("producer");
 
     $scope.producer = {};
 
     $scope.save = function () {
-      firebase.push($scope.producer);
+      firebaseProducers.push($scope.producer);
       $scope.producer = {};
       $mdDialog.hide();
     };
