@@ -19,13 +19,29 @@
           <input name="color" ng-model="product.color">
         </md-input-container>
 
-        <md-input-container class="md-block">
-          <label>Producer</label>
-          <input required name="producer" ng-model="product.producer">
-          <div ng-messages="addProductForm.producer.$error">
+        <md-autocomplete flex required
+                         md-no-cache="true"
+                         md-input-name="autocompleteField"
+                         md-selected-item="producer.selectedItem"
+                         md-search-text="producer.searchText"
+                         md-items="item in producer.querySearch(producer.searchText)"
+                         md-item-text="item.display"
+                         md-floating-label="Producer">
+          <md-item-template>
+            <span md-highlight-text="AddProductCtrl.producer.searchText">{{item.display}}</span>
+          </md-item-template>
+          <div ng-messages="addProductForm.autocompleteField.$error" ng-if="addProductForm.autocompleteField.$touched">
             <div ng-message="required">* This is required.</div>
           </div>
-        </md-input-container>
+          <md-not-found>
+            Add new Producer
+          </md-not-found>
+        </md-autocomplete>
+
+
+
+
+
 
         <div layout="row" layout-align="end center">
         <md-button ng-click="cancel()">Cancel</md-button>
