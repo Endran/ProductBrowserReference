@@ -1,0 +1,31 @@
+<div ng-cloak>
+  <md-content>
+    <h1>Festivals</h1>
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="festival in festivals">
+        <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
+        <div class="md-list-item-text" layout="column">
+          <div>
+            <h3>{{ festival.name }}</h3>
+            <h4>{{ festival.address }}</h4>
+            <p>{{ festival.url }}</p>
+            <p>{{ festival.date }}</p>
+            <p>{{ festival.description }}</p>
+          </div>
+          <div class="md-secondary md-hue-3">
+            <md-button class="md-icon-button" aria-label="More" ng-click="deleteFestival($event, festival)">
+              <i class="fa fa-times"></i>
+            </md-button>
+          </div>
+        </div>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+
+    <md-button class="md-fab md-fab-top-right" aria-label="Add Festival"
+               ng-click="showAddFestival($event)">
+      <i class="fa fa-plus"></i>
+    </md-button>
+
+  </md-content>
+</div>
