@@ -10,7 +10,9 @@
 angular.module('showcaseweb')
   .controller('ProducersCtrl', function ($scope, $mdMedia, $mdDialog) {
     var firebaseProducers = firebase.database().ref("producer");
-    firebaseProducers.orderByChild("name").on('value', function (snapshot) {
+
+
+    var producersListener = function (snapshot) {
       var values = snapshot.val();
       $scope.producers = [];
       for (var key in values) {
@@ -21,8 +23,12 @@ angular.module('showcaseweb')
         }
       }
       $scope.$apply();
-    }, /* onError */ function () {
-    }, /* context */ this);
+    };
+
+    firebaseProducers.orderByChild("name").on('value', producersListener);
+    $scope.$on('$destroy', function () {
+      firebaseProducers.off();
+    });
 
     $scope.showAddProducer = function (ev) {
       $mdDialog.show({

@@ -13,7 +13,7 @@ angular.module('showcaseweb')
     self.productFirebase = firebase.database().ref("product");
     self.producerFirebase = firebase.database().ref("producer");
 
-    self.producerFirebase.orderByChild("name").on('value', function (snapshot) {
+    self.producerFirebase.orderByChild("name").once('value', function (snapshot) {
       var values = snapshot.val();
       self.producers = [];
       for (var key in values) {

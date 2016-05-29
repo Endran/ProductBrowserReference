@@ -12,7 +12,7 @@ angular.module('showcaseweb')
     var self = this;
     self.productFirebase = firebase.database().ref("product");
 
-    self.productFirebase.orderByChild("name").on('value', function (snapshot) {
+    var productsListener = function (snapshot) {
       var values = snapshot.val();
       self.products = [];
       for (var key in values) {
@@ -24,8 +24,12 @@ angular.module('showcaseweb')
       }
       $scope.products = self.products;
       $scope.$apply();
-    }, /* onError */ function () {
-    }, /* context */ this);
+    };
+
+    self.productFirebase.orderByChild("name").on('value', productsListener);
+    $scope.$on('$destroy', function () {
+      self.productFirebase.off();
+    });
 
     $scope.showAddProduct = function (ev) {
       $mdDialog.show({

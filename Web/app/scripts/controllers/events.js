@@ -10,7 +10,8 @@
 angular.module('showcaseweb')
   .controller('EventsCtrl', function ($scope, $mdMedia, $mdDialog) {
     var firebaseEvents = firebase.database().ref("event");
-    firebaseEvents.orderByChild("name").on('value', function (snapshot) {
+
+    var eventsListener = function (snapshot) {
       var values = snapshot.val();
       $scope.events = [];
       for (var key in values) {
@@ -21,8 +22,12 @@ angular.module('showcaseweb')
         }
       }
       $scope.$apply();
-    }, /* onError */ function () {
-    }, /* context */ this);
+    };
+
+    firebaseEvents.orderByChild("name").on('value', eventsListener);
+    $scope.$on('$destroy', function () {
+      firebaseEvents.off();
+    });
 
     $scope.showAddEvent = function (ev) {
       $mdDialog.show({
