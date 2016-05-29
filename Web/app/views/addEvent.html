@@ -1,1 +1,45 @@
-<p>This is the addEvent view.</p>
+<md-dialog aria-label="Mango (Fruit)" ng-cloak flex="percentage" ie flex="50">
+  <div ng-controller="AddEventCtrl" layout="column" ng-cloak>
+    <md-content layout-padding>
+      <form name="addEventForm" ng-submit="save()">
+
+        <h1>New Event</h1>
+        <br>
+
+        <md-input-container class="md-block">
+          <label>Name</label>
+          <input required name="name" ng-model="event.name">
+          <div ng-messages="addEventForm.name.$error">
+            <div ng-message="required">* This is required.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Address</label>
+          <input name="address" ng-model="event.address">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>URL</label>
+          <input name="url" ng-model="event.url">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Date</label>
+          <input name="date" ng-model="event.date">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Description</label>
+          <input name="description" ng-model="event.description">
+        </md-input-container>
+
+        <div layout="row" layout-align="end center">
+          <md-button ng-click="cancel()">Cancel</md-button>
+          <md-button class="md-accent" type="submit">Save</md-button>
+        </div>
+
+      </form>
+    </md-content>
+  </div>
+</md-dialog>

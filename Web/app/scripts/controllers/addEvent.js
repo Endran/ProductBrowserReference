@@ -2,16 +2,24 @@
 
 /**
  * @ngdoc function
- * @name showcaseweb.controller:AddeventCtrl
+ * @name showcaseweb.controller:AboutCtrl
  * @description
- * # AddeventCtrl
+ * # AboutCtrl
  * Controller of the showcaseweb
  */
 angular.module('showcaseweb')
-  .controller('AddEventCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('AddEventCtrl', function ($scope, $mdDialog) {
+    var firebaseEvents = firebase.database().ref("event");
+
+    $scope.event = {};
+
+    $scope.save = function () {
+      firebaseEvents.push($scope.event);
+      $scope.event = {};
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function () {
+      $mdDialog.hide();
+    }
   });

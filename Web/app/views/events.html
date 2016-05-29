@@ -1,1 +1,31 @@
-<p>This is the events view.</p>
+<div ng-cloak>
+  <md-content>
+    <h1>Events</h1>
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="event in events">
+        <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
+        <div class="md-list-item-text" layout="column">
+          <div>
+            <h3>{{ event.name }}</h3>
+            <h4>{{ event.address }}</h4>
+            <p>{{ event.url }}</p>
+            <p>{{ event.date }}</p>
+            <p>{{ event.description }}</p>
+          </div>
+          <div class="md-secondary md-hue-3">
+            <md-button class="md-icon-button" aria-label="More" ng-click="deleteEvent($event, event)">
+              <i class="fa fa-times"></i>
+            </md-button>
+          </div>
+        </div>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+
+    <md-button class="md-fab md-fab-top-right" aria-label="Add Event"
+               ng-click="showAddEvent($event)">
+      <i class="fa fa-plus"></i>
+    </md-button>
+
+  </md-content>
+</div>
